@@ -14,13 +14,13 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 
 provider "aws" {
   alias  = "target"
-  region = "us-east-1"
+  region = var.region
   assume_role {
     role_arn = "arn:aws:iam::654654163064:role/arc-destination-role"
   }
@@ -50,7 +50,7 @@ module "transit_gateway" {
 
 provider "aws" {
   alias  = "target2"
-  region = "us-east-1"
+  region = var.region
   assume_role {
     role_arn = "arn:aws:iam::992382551538:role/arc-destination-role-2"
   }
@@ -59,9 +59,9 @@ provider "aws" {
 module "transit_gateway_target2" {
   source = "../."
 
-  create_transit_gateway = false # Set this to 'false' as the Transit Gateway is created in the previous module.
+  create_transit_gateway                  = false # Set this to 'false' as the Transit Gateway is created in the previous module.
   create_transit_gateway_attacment_source = false # Set this to 'false' as the Transit Gateway attachment source is created in the previous module.
-  existing_transit_gateway_id = module.transit_gateway.transit_gateway_id
+  existing_transit_gateway_id             = module.transit_gateway.transit_gateway_id
 
   source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
 

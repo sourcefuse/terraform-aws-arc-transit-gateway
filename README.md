@@ -22,8 +22,8 @@ To see a full example, check out the [main.tf](./example/main.tf) file in the ex
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.67.0 |
-| <a name="provider_aws.target"></a> [aws.target](#provider\_aws.target) | 4.67.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.64.0 |
+| <a name="provider_aws.target"></a> [aws.target](#provider\_aws.target) | 5.64.0 |
 
 ## Modules
 
@@ -53,14 +53,12 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_allow_external_principals"></a> [allow\_external\_principals](#input\_allow\_external\_principals) | Indicates whether external principals (accounts outside the organization) are allowed. | `bool` | `true` | no |
 | <a name="input_auto_accept_shared_attachments"></a> [auto\_accept\_shared\_attachments](#input\_auto\_accept\_shared\_attachments) | Whether resource attachment requests are automatically accepted | `string` | `"disable"` | no |
-| <a name="input_create_before_destroy"></a> [create\_before\_destroy](#input\_create\_before\_destroy) | Determines whether the resource should be created before being destroyed. | `bool` | `true` | no |
 | <a name="input_create_transit_gateway"></a> [create\_transit\_gateway](#input\_create\_transit\_gateway) | n/a | `bool` | `true` | no |
 | <a name="input_create_transit_gateway_attacment_source"></a> [create\_transit\_gateway\_attacment\_source](#input\_create\_transit\_gateway\_attacment\_source) | n/a | `bool` | `true` | no |
 | <a name="input_default_route_table_association"></a> [default\_route\_table\_association](#input\_default\_route\_table\_association) | Whether resource attachments are associated with the default route table | `string` | `"enable"` | no |
 | <a name="input_default_route_table_propagation"></a> [default\_route\_table\_propagation](#input\_default\_route\_table\_propagation) | Whether resource attachments automatically propagate routes to the default route table | `string` | `"enable"` | no |
 | <a name="input_dns_support"></a> [dns\_support](#input\_dns\_support) | Enable or disable DNS support | `string` | `"enable"` | no |
 | <a name="input_existing_transit_gateway_id"></a> [existing\_transit\_gateway\_id](#input\_existing\_transit\_gateway\_id) | n/a | `string` | `null` | no |
-| <a name="input_region"></a> [region](#input\_region) | The AWS region to deploy to | `string` | `"us-east-1"` | no |
 | <a name="input_source_attachment_dns_support"></a> [source\_attachment\_dns\_support](#input\_source\_attachment\_dns\_support) | Enable or disable DNS support | `string` | `"enable"` | no |
 | <a name="input_source_attachment_ipv6_support"></a> [source\_attachment\_ipv6\_support](#input\_source\_attachment\_ipv6\_support) | Enable or disable IPv6 support | `string` | `"disable"` | no |
 | <a name="input_source_attachment_name"></a> [source\_attachment\_name](#input\_source\_attachment\_name) | A map of tags to assign to the source Transit Gateway VPC attachment. | `map(string)` | <pre>{<br>  "Name": "TransitGateway-VPC-Attachment-Source"<br>}</pre> | no |

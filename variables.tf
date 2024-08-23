@@ -1,13 +1,6 @@
 ################################################################
 ## variables
 ################################################################
-
-variable "region" {
-  description = "The AWS region to deploy to"
-  type        = string
-  default     = "us-east-1"
-}
-
 variable "transit_gateway_name" {
   description = "Name of the Transit Gateway"
   type        = string
@@ -31,13 +24,6 @@ variable "allow_external_principals" {
   type        = bool
   default     = true
 }
-
-variable "create_before_destroy" {
-  description = "Determines whether the resource should be created before being destroyed."
-  type        = bool
-  default     = true
-}
-
 
 variable "auto_accept_shared_attachments" {
   description = "Whether resource attachment requests are automatically accepted"
