@@ -22,7 +22,7 @@ provider "aws" {
   alias  = "target"
   region = var.region
   assume_role {
-    role_arn = "arn:aws:iam::654654163064:role/arc-destination-role"
+    role_arn = "arn:aws:iam::123456789000:role/arc-destination-role"
   }
 }
 
@@ -33,7 +33,7 @@ module "transit_gateway" {
   create_transit_gateway_attacment_in_source_account = true
   transit_gateway_name                               = "${var.project_name}-Transit-GW"
 
-  target_account_id      = ["654654163064"]
+  target_account_id      = ["123456789000"]
   source_vpc_id          = "vpc-0828676a85368a010"
   source_subnet_ids      = ["subnet-0bd3777718064b8c1", "subnet-0ceedb9d964271d63"]
   source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
@@ -52,7 +52,7 @@ provider "aws" {
   alias  = "target2"
   region = var.region
   assume_role {
-    role_arn = "arn:aws:iam::992382551538:role/arc-destination-role-2"
+    role_arn = "arn:aws:iam::098765432100:role/arc-destination-role-2"
   }
 }
 
@@ -65,7 +65,7 @@ module "transit_gateway_target2" {
 
   source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
 
-  target_account_id = ["992382551538"]
+  target_account_id = ["098765432100"]
 
   providers = {
     aws        = aws
