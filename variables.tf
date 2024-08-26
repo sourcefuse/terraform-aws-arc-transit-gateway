@@ -56,11 +56,9 @@ variable "vpn_ecmp_support" {
 }
 
 variable "source_attachment_name" {
-  description = "A map of tags to assign to the source Transit Gateway VPC attachment."
-  type        = map(string)
-  default = {
-    Name = "TransitGateway-VPC-Attachment-Source"
-  }
+  description = "The name tag for the source Transit Gateway VPC attachment."
+  type        = string
+  default     = "TransitGateway-VPC-Attachment-Source"
 }
 
 variable "source_attachment_dns_support" {
@@ -80,11 +78,9 @@ variable "source_attachment_ipv6_support" {
 ###################### Target Account ########################
 
 variable "target_attachment_name" {
-  description = "A map of tags to assign to the Target Transit Gateway VPC attachment."
-  type        = map(string)
-  default = {
-    Name = "TransitGateway-VPC-Attachment-Target"
-  }
+  description = "The name tag for the target Transit Gateway VPC attachment."
+  type        = string
+  default     = "TransitGateway-VPC-Attachment-Target"
 }
 
 variable "target_attachment_dns_support" {

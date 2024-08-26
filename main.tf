@@ -41,7 +41,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "source" {
   dns_support        = var.source_attachment_dns_support
   ipv6_support       = var.source_attachment_ipv6_support
 
-  tags = merge(var.tags, var.source_attachment_name)
+  tags = local.source_attachment_tags
 
   depends_on = [
     aws_ec2_transit_gateway.this,
@@ -81,7 +81,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
   dns_support        = var.target_attachment_dns_support
   ipv6_support       = var.target_attachment_ipv6_support
 
-  tags = merge(var.tags, var.target_attachment_name)
+  tags = local.target_attachment_tags
 
   depends_on = [
     aws_ec2_transit_gateway.this,
