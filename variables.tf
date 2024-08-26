@@ -161,7 +161,7 @@ variable "existing_transit_gateway_id" {
   default = null
 }
 
-variable "create_transit_gateway_attacment_source" {
+variable "create_transit_gateway_attacment_in_source_account" {
   type    = bool
   default = true
 }

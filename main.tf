@@ -14,26 +14,26 @@ resource "aws_ec2_transit_gateway" "this" {
 }
 
 # Share the Transit Gateway via RAM
-resource "aws_ram_resource_share" "transit_gateway_share" {
+resource "aws_ram_resource_share" "transit_gateway" {
   name                      = var.transit_gateway_share_name
   allow_external_principals = var.allow_external_principals
 }
 
 resource "aws_ram_principal_association" "target_account" {
   for_each           = toset(var.target_account_id)
-  resource_share_arn = aws_ram_resource_share.transit_gateway_share.arn
+  resource_share_arn = aws_ram_resource_share.transit_gateway.arn
   principal          = each.value
 }
 
 resource "aws_ram_resource_association" "transit_gateway" {
-  resource_share_arn = aws_ram_resource_share.transit_gateway_share.arn
+  resource_share_arn = aws_ram_resource_share.transit_gateway.arn
   resource_arn       = var.create_transit_gateway ? aws_ec2_transit_gateway.this[0].arn : data.aws_ec2_transit_gateway.this[0].arn
 }
 
 
 # Conditionally create the Transit Gateway VPC Attachment for Source
 resource "aws_ec2_transit_gateway_vpc_attachment" "source" {
-  count = var.create_transit_gateway_attacment_source ? 1 : 0
+  count = var.create_transit_gateway_attacment_in_source_account ? 1 : 0
 
   transit_gateway_id = var.create_transit_gateway ? aws_ec2_transit_gateway.this[0].id : var.existing_transit_gateway_id
   vpc_id             = var.source_vpc_id
@@ -68,7 +68,7 @@ resource "aws_route" "source" {
 # Target Account resources
 resource "aws_ram_resource_share_accepter" "transit_gateway" {
   provider  = aws.target
-  share_arn = aws_ram_resource_share.transit_gateway_share.arn
+  share_arn = aws_ram_resource_share.transit_gateway.arn
 
   depends_on = [aws_ram_principal_association.target_account]
 }

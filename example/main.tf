@@ -29,9 +29,9 @@ provider "aws" {
 module "transit_gateway" {
   source = "../."
 
-  create_transit_gateway                  = true
-  create_transit_gateway_attacment_source = true
-  transit_gateway_name                    = "${var.project_name}-Transit-GW"
+  create_transit_gateway                             = true
+  create_transit_gateway_attacment_in_source_account = true
+  transit_gateway_name                               = "${var.project_name}-Transit-GW"
 
   target_account_id      = ["654654163064"]
   source_vpc_id          = "vpc-0828676a85368a010"
@@ -59,9 +59,9 @@ provider "aws" {
 module "transit_gateway_target2" {
   source = "../."
 
-  create_transit_gateway                  = false # Set this to 'false' as the Transit Gateway is created in the previous module.
-  create_transit_gateway_attacment_source = false # Set this to 'false' as the Transit Gateway attachment source is created in the previous module.
-  existing_transit_gateway_id             = module.transit_gateway.transit_gateway_id
+  create_transit_gateway                             = false # Set this to 'false' as the Transit Gateway is created in the previous module.
+  create_transit_gateway_attacment_in_source_account = false # Set this to 'false' as the Transit Gateway attachment source is created in the previous module.
+  existing_transit_gateway_id                        = module.transit_gateway.transit_gateway_id
 
   source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
 
