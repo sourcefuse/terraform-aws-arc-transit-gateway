@@ -1,16 +1,16 @@
 ---
   name: "Run Pre Commit Checks"
-  
+
   on:  # yamllint disable-line rule:truthy
     push:
       branches:
         - '**'
         - '!main'
-  
+
   concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
-  
+
   jobs:
     ## run pre-commit
     pre-commit:
@@ -22,15 +22,15 @@
         actions: write
         pages: write
         id-token: write
-  
+
       steps:
         - name: Checkout
           uses: actions/checkout@v4
           with:
             token: ${{ secrets.ARC_JOB_TOKEN }}
-  
+
         - uses: actions/setup-python@v3
-  
+
         - name: Install terraform-docs
           run: |
             cd /tmp
@@ -47,7 +47,7 @@
         - name: Run pre-commit
           uses: pre-commit/action@v3.0.0
           continue-on-error: true  # we want to push the changes pre-commit makes
-  
+
         - name: Push pre-commit changes to branch
           uses: stefanzweifel/git-auto-commit-action@v5
           with:

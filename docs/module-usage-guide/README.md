@@ -73,9 +73,9 @@ module "transit_gateway_target2" {
   source = "../."
 
   # Set below to 'false' as the Transit Gateway is created in the previous module.
-  create_transit_gateway                             = false 
+  create_transit_gateway                             = false
   # Set below to 'false' as the Transit Gateway attachment source is created in the previous module.
-  create_transit_gateway_attacment_in_source_account = false 
+  create_transit_gateway_attacment_in_source_account = false
   existing_transit_gateway_id                        = module.transit_gateway.transit_gateway_id
 
   source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
@@ -131,8 +131,8 @@ For a list of outputs, see the README [Outputs](https://github.com/sourcefuse/te
 For usage, see the [example](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/tree/main/example) folder.
 
 This example will create:
-Transit Gateway resources across multiple accounts. 
-The first module creates a Transit Gateway in a source account, shares it with target accounts via AWS Resource Access Manager (RAM), and establishes TGW attachments and routing in both the source and target accounts. 
+Transit Gateway resources across multiple accounts.
+The first module creates a Transit Gateway in a source account, shares it with target accounts via AWS Resource Access Manager (RAM), and establishes TGW attachments and routing in both the source and target accounts.
 The second module uses the existing Transit Gateway, creates additional TGW attachments in another target account, and configures route tables to manage traffic between the source and destination CIDR blocks.
 
 ### Tips and Recommendations
