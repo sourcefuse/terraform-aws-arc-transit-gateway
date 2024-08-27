@@ -1,5 +1,16 @@
 # terraform-aws-transit-gateway-module
 
+![Module Structure](./static/banner.png)
+# [terraform-aws-arc-transit-gateway](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway)
+
+<a href="https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/releases/latest"><img src="https://img.shields.io/github/release/sourcefuse/terraform-aws-arc-transit-gateway.svg?style=for-the-badge" alt="Latest Release"/></a> <a href="https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/commits"><img src="https://img.shields.io/github/last-commit/sourcefuse/terraform-aws-arc-transit-gateway.svg?style=for-the-badge" alt="Last Updated"/></a> ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=sourcefuse_terraform-aws-arc-transit-gateway&token=c95b7f9cb578b46e7138ef493c1b6a8df8fe4442)](https://sonarcloud.io/summary/new_code?id=sourcefuse_terraform-aws-arc-transit-gateway)
+
+[![Known Vulnerabilities](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/actions/workflows/snyk.yaml/badge.svg)](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/actions/workflows/snyk.yaml)
+
+
+
 ## Overview
 
 SourceFuse AWS Reference Architecture (ARC) Terraform module for managing Transit Gateway Terraform module provides a robust solution for managing complex network architectures within AWS. This module simplifies the creation, configuration, and management of AWS Transit Gateway, VPC attachments, and routing between VPCs. It ensures efficient network integration and connectivity across multiple AWS accounts by leveraging AWS best practices and conditional resource creation, making it ideal for scalable and flexible network solutions.
