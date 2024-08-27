@@ -128,7 +128,7 @@ For a list of outputs, see the README [Outputs](https://github.com/sourcefuse/te
 
 ### Basic Usage
 
-For usage, see the [example](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/tree/main/examples) folder.
+For usage, see the [example](https://github.com/sourcefuse/terraform-aws-arc-transit-gateway/tree/main/example) folder.
 
 This example will create:
 Transit Gateway resources across multiple accounts. 
