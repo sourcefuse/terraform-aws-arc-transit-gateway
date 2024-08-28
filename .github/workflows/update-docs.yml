@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Pushes Readme file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
@@ -22,6 +23,7 @@ jobs:
           user_email: 'github-actions@github.com'
           user_name: ${{ github.actor }}
           commit_message: ${{ github.event.head_commit.message }}
+
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
@@ -36,6 +38,7 @@ jobs:
           user-name: ${{ github.actor }}
           target-branch: main
           commit-message: ${{ github.event.head_commit.message }}
+
       - name: Pushes Module Usage Guide
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
