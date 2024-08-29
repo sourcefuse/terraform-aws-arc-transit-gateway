@@ -22,7 +22,7 @@ provider "aws" {
   alias  = "target"
   region = var.region
   assume_role {
-    role_arn = "arn:aws:iam::123456789000:role/arc-destination-role"
+    role_arn = "arn:aws:iam::123456789011:role/arc-destination-role"
   }
 }
 
@@ -33,18 +33,18 @@ module "transit_gateway" {
   create_transit_gateway_attacment_in_source_account = true
   transit_gateway_name                               = "${var.project_name}-Transit-GW"
 
-  target_account_id      = ["123456789000"]
-  source_vpc_id          = "vpc-0828676a85368a010"
-  source_subnet_ids      = ["subnet-0bd3777718064b8c1", "subnet-0ceedb9d964271d63"]
-  source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
+  target_account_id      = ["123456789011"]
+  source_vpc_id          = "vpc-041c8e8edab39fe4d"
+  source_subnet_ids      = ["subnet-0e4915858deca8b7c", "subnet-0ad42d974829c18ca"]
+  source_route_table_ids = ["rtb-09df595faf61cf122", "rtb-0cded0fad17ab4558"]
   providers = {
     aws        = aws
     aws.target = aws.target
   }
 
-  target_vpc_id          = "vpc-021a5ebd8765454be"
-  target_subnet_ids      = ["subnet-0967757bbf9e8b397", "subnet-0ba1d81aa9a056822"]
-  target_route_table_ids = ["rtb-03694d12130a3ee16", "rtb-0a95cb0a679c62206"]
+  target_vpc_id          = "vpc-0757e1c617bfc7cd1"
+  target_subnet_ids      = ["subnet-0da77a6acf494b1f8", "subnet-098ef9f4a86deffc7"]
+  target_route_table_ids = ["rtb-0a3f3556800060e9a", "rtb-0e3ab418edff8fe8c"]
 
 }
 
@@ -52,7 +52,7 @@ provider "aws" {
   alias  = "target2"
   region = var.region
   assume_role {
-    role_arn = "arn:aws:iam::098765432100:role/arc-destination-role-2"
+    role_arn = "arn:aws:iam::098765432111:role/arc-destination-role-2"
   }
 }
 
@@ -63,9 +63,9 @@ module "transit_gateway_target2" {
   create_transit_gateway_attacment_in_source_account = false # Set this to 'false' as the Transit Gateway attachment source is created in the previous module.
   existing_transit_gateway_id                        = module.transit_gateway.transit_gateway_id
 
-  source_route_table_ids = ["rtb-0f47f5b2f4294ed68", "rtb-0f91ca3850d4802eb"]
+  source_route_table_ids = ["rtb-09df595faf61cf122", "rtb-0cded0fad17ab4558"]
 
-  target_account_id = ["098765432100"]
+  target_account_id = ["098765432111"]
 
   providers = {
     aws        = aws
