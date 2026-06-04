@@ -22,6 +22,10 @@
 
 Creates AWS Transit Gateway with VPC attachments, route table associations, and cross-account sharing via Resource Access Manager.
 
+## Architecture
+
+![Architecture Diagram](./static/arch.png)
+
 ## What It Does
 
 - Transit Gateway with configurable ASN and routing options
